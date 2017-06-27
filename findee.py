@@ -9,14 +9,15 @@ whichFile = sys.argv[2]
 if (len(whichFile) == 0):
     print("没有输入文件名,默认采用domain.txt")
     whichFile = "domain.txt"
-
+lastKey = sys.argv[1]
+file = open(lastKey + "_result.txt", "a")
 with open(whichFile) as f:
     print(sys.argv[1])
     for i in f.readlines():
         findDoman = str(i).strip()
 
         keyWord = "没有被注册，立即抢先注册"
-        lastKey = sys.argv[1]
+
         url = "https://www.quyu.net/domainchecker.php"
 
         payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data;" \
@@ -31,6 +32,6 @@ with open(whichFile) as f:
         }
         response = requests.request("POST", url, data=payload, headers=headers)
         print(findDoman, lastKey, response.text.find(keyWord))
-        file = open(lastKey + "_result.txt", "a")
+
         file.writelines(findDoman + lastKey + str(response.text.find(keyWord)))
         file.write("\n")
