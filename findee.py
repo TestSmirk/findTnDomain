@@ -1,5 +1,3 @@
-import requests
-
 # coding = utf-8
 import requests
 import os, sys
@@ -31,6 +29,5 @@ with open(whichFile) as f:
             'postman-token': "05d6797c-313c-d1e0-d39f-8ae53bc6dbd5"
         }
         response = requests.request("POST", url, data=payload, headers=headers)
-        # print(findDoman, lastKey, response.text.find(keyWord))
         file.writelines(findDoman + lastKey + str(response.text.find(keyWord)))
         file.write("\n")
