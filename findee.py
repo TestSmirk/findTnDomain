@@ -13,11 +13,8 @@ with open(whichFile) as f:
     print(sys.argv[1])
     for i in f.readlines():
         findDoman = str(i).strip()
-
         keyWord = "没有被注册，立即抢先注册"
-
         url = "https://www.quyu.net/domainchecker.php"
-
         payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data;" \
                   " name=\"token\"\r\n\r\n461279b9dfb1fb04bd46423d9730a590c1c2a35a\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\n" \
                   "Content-Disposition: form-data; name=\"domain\"\r\n\r\n%s\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW" \
