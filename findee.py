@@ -3,7 +3,13 @@ import requests
 import os, sys
 
 nextLine = "\n"
-whichFile = sys.argv[2]
+try:
+    whichFile = sys.argv[2]
+except:
+    print("except")
+    whichFile = ""
+finally:
+    whichFile = ""
 if (len(whichFile) == 0):
     print("没有输入文件名,默认采用domain.txt\n no input filename,use default file domain.txt")
     whichFile = "domain.txt"
