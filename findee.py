@@ -6,7 +6,6 @@ nextLine = "\n"
 try:
     whichFile = sys.argv[2]
 except:
-    print("except")
     whichFile = ""
 if len(whichFile) == 0:
     print("没有输入文件名,默认采用domain.txt\n no input filename,use default file domain.txt")
